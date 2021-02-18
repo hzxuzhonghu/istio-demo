@@ -10,6 +10,8 @@ spec:
         number: 31400
         name: tcp
         protocol: TCP
+      hosts:
+      - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
