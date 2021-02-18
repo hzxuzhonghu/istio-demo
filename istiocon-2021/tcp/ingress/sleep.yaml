@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: sleep
-      annotaions:
+      annotations:
         sidecar.istio.io/interceptionMode: TPROXY
     spec:
       terminationGracePeriodSeconds: 0
