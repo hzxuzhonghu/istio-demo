@@ -20,12 +20,12 @@ kubectl apply -f https://github.com/istio/istio/raw/master/samples/httpbin/httpb
 ## access httpbin from sleep and check the ip
 
 ```bash
-k exec -ti sleep-557747455f-b62dt -c sleep sh -- curl httpbin:8000/ip
+k exec -ti sleep-557747455f-tt97m -c sleep sh -- curl httpbin:8000/ip
 {
   "origin": "127.0.0.1"
 }
 
-kubectl exec -ti sleep-557747455f-b62dt -c sleep -- curl httpbin:8000/headers?show_env=1
+kubectl exec -ti sleep-557747455f-tt97m -c sleep -- curl httpbin:8000/headers?show_env=1
 {
   "headers": {
     "Accept": "*/*",
@@ -55,12 +55,12 @@ kubectl apply -f yaml
 ## access httpbin from sleep and check the ip
 
 ```bash
-k exec -ti sleep-557747455f-b62dt -c sleep sh -- curl httpbin:8000/ip
+k exec -ti sleep-557747455f-tt97m -c sleep sh -- curl httpbin:8000/ip
 {
   "origin": "10.244.0.14"
 }
 
-k exec -ti sleep-557747455f-b62dt -c sleep sh -- curl httpbin:8000/headers?show_env=1
+k exec -ti sleep-557747455f-tt97m -c sleep sh -- curl httpbin:8000/headers?show_env=1
 {
   "headers": {
     "Accept": "*/*",
