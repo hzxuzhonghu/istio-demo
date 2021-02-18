@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: sleep
+  namespace: default
+spec:
+  workloadSelector:
+    labels:
+      app: sleep
+  configPatches:
+  - applyTo: NETWORK_FILTER
+    match:
+      listener:
+        portNumber: 8000
+        filterChain:
+          filter:
+            name: envoy.http_connection_manager
+    patch:
+      operation: MERGE
+      value:
+        name: envoy.http_connection_manager
+        typed_config:
+          "@type": type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager
+          skip_xff_append: false
+          use_remote_address: true
+          xff_num_trusted_hops: 1
